@@ -1,0 +1,24 @@
+{
+  "name": "pvalid",
+  "version": "0.1.0",
+  "description": "Validate function parameters in JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_VER=test mocha --exit --recursive test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matsaleh13/pvalid.git"
+  },
+  "author": "Matthew C. Walker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matsaleh13/pvalid/issues"
+  },
+  "homepage": "https://github.com/matsaleh13/pvalid#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.13.0",
+    "mocha": "^5.2.0"
+  }
+}
