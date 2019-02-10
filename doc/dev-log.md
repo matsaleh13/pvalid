@@ -13,3 +13,9 @@
   - Check using typeof or instanceof.
   - Want to check special types e.g. Mongo models, but that should be via DI or custom plugin?
 - Committed WIP stuff.
+
+## 2019-02-10
+
+- More implementation.
+- Refactored utility functions and errors into their own modules.
+- Added tests for util.js functions.
