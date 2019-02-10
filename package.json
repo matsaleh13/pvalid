@@ -4,7 +4,7 @@
   "description": "Validate function parameters in JavaScript.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --exit --recursive test",
+    "test": "mocha --exit --recursive",
     "eslint": "eslint . "
   },
   "repository": {
