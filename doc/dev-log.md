@@ -19,3 +19,8 @@
 - More implementation.
 - Refactored utility functions and errors into their own modules.
 - Added tests for util.js functions.
+
+## 2019-02-16
+
+- More tests:
+  - instanceof checks.
