@@ -28,5 +28,5 @@
   - and tests.
 - Implemented public interface that supports disabling validation.
   - and tests.
-
+- Started perf tests.
 

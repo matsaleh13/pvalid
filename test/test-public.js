@@ -1,10 +1,9 @@
 const { expect } = require('chai');
-const { PvError } = require('../lib/error');
 
 describe('pvalid public interface', () => {
   describe('#enabled by default', () => {
     // eslint-disable-next-line global-require
-    const { pv } = require('../lib')();
+    const { pv, PvError } = require('../lib')();
 
     it('pv does not throw when validation succeeds and no callback provided', () => {
       expect(() => pv(42, { foo: 'number' })).to.not.throw();
@@ -33,7 +32,7 @@ describe('pvalid public interface', () => {
 
   describe('#disabled makes validation calls no-op', () => {
     // eslint-disable-next-line global-require
-    const { pv } = require('../lib')({ disabled: true });
+    const { pv, PvError } = require('../lib')({ disabled: true });
 
     it('pv does not throw when validation succeeds and no callback provided', () => {
       expect(() => pv(42, { foo: 'number' })).to.not.throw();
@@ -48,7 +47,7 @@ describe('pvalid public interface', () => {
     });
 
     it('pv DOES NOT throw PvError when validation fails and no callback provided', () => {
-      expect(() => pv('42', { foo: 'number' })).to.not.throw();
+      expect(() => pv('42', { foo: 'number' })).to.not.throw(PvError);
     });
 
     it('pv DOES NOT call callback with PvError when validation fails and callback provided', () => {
