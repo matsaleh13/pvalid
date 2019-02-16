@@ -22,5 +22,11 @@
 
 ## 2019-02-16
 
-- More tests:
+- More validation tests:
   - instanceof checks.
+- Implemented wrapper function that takes criteria parameter.
+  - and tests.
+- Implemented public interface that supports disabling validation.
+  - and tests.
+
+
