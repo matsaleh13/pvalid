@@ -29,6 +29,10 @@ describe('pvalid', () => {
       expect(() => validateTypeOrInstance('foo', 42, 'bar')).to.throw(PvValueError);
     });
 
+    it('throws PvValueError when typeInfo is a nested array', () => {
+      expect(() => validateTypeOrInstance('foo', 42, ['string', ['number']])).to.throw(PvValueError);
+    });
+
     describe('#typeof', () => {
       const validValues = [
         [true, 'boolean'],
@@ -43,6 +47,11 @@ describe('pvalid', () => {
         // eslint-disable-next-line no-new-wrappers
         [new String(), 'object'],
         [Symbol('foo'), 'symbol'],
+        // multi types
+        [true, ['boolean', 'number']],
+        [1, ['boolean', 'number']],
+        [42, ['number', 'string']],
+        ['42', ['number', 'string']],
       ];
       validValues.forEach((testValues) => {
         const value = testValues[0];
@@ -68,6 +77,11 @@ describe('pvalid', () => {
         [Symbol, 'symbol'],
         ['foo', 'symbol'],
         ['undefined', 'undefined'],
+        // multi types
+        [true, ['object', 'string']],
+        [1, ['boolean', 'symbol']],
+        [42, ['object', 'symbol']],
+        ['42', ['symbol', 'number']],
       ];
       invalidValues.forEach((testValues) => {
         const value = testValues[0];
@@ -103,6 +117,11 @@ describe('pvalid', () => {
         // eslint-disable-next-line no-new-wrappers
         [new Error('xyzzy'), Error],
         [() => { }, Function],
+        // multi types
+        [new Es5(), [Es5, Es6]],
+        [new Es6(), [Es5, Es6]],
+        [new Date(), [Date, 'number']],
+        [Date.now(), [Date, 'number']],
       ];
       validValues.forEach((testValues) => {
         const value = testValues[0];
@@ -124,6 +143,10 @@ describe('pvalid', () => {
         [true, Boolean],
         [Date.now(), Date],
         [Error, Error],
+        // multi types
+        [{}, [Es5, Es6]],
+        [() => { }, [Es5, Es6]],
+        ['today', [Date, 'number']],
       ];
       invalidValues.forEach((testValues) => {
         const value = testValues[0];

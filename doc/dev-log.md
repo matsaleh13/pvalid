@@ -30,3 +30,7 @@
   - and tests.
 - Started perf tests.
 
+## 2019-02-17
+
+- Refined function timing tests.
+- Added tests for multi-type checks using arrays.
